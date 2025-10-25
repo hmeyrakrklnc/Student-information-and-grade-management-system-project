@@ -1,1 +1,1 @@
-# -renci-Bilgi-Ve-Not-Y-netim-Sistemi-Projesi
+# Ogrenci-Bilgi-Ve-Not-Yonetim-Sistemi-Projesi
