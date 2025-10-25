@@ -1,4 +1,4 @@
-## 🧭 Proje Adı: **Öğrenci Bilgi ve Not Yönetim Sistemi (v1)**
+## 🧭 Proje Adı: **Öğrenci Bilgi ve Not Yönetim Sistemi**
 
 ### 🎯 Kullanılan Kavramlar
 
@@ -62,7 +62,7 @@ while True:
 Kullanıcı seçim yapar, ardından ilgili fonksiyon çalışır.
 
 ---
-
+Pythonla yazılmıştır.
 
 
 
