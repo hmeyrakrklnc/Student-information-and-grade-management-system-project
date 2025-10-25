@@ -24,7 +24,7 @@
 
 2️⃣Her öğrenci sözlük olarak saklanır:
 ```python
-ogrenci = {"isim": "Ahmet", "not": 85, "durum": "Geçti", "harf": "B"}
+ogrenci = {"isim": "Ahmet", "not": 84, "durum": "İyi", "harf": "B"}
 ````
 
 3️⃣Not durumları:
