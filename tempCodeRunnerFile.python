@@ -1,0 +1,80 @@
+ogrenciler = []
+# ---- FONKSİYONLAR ----
+def harf_notu(notu):
+    if notu >= 85:
+        return "A"
+    elif notu >= 70:
+        return "B"
+    elif notu >= 50:
+        return "C"
+    else:
+        return "F"
+def durum_belirle(notu):
+        return "Geçti" if notu >= 50 else "Kaldı"
+def ortalama_hesapla(liste):
+      if len(liste) == 0:
+        return 0
+      return sum([ogr["not"] for ogr in liste]) / len(liste)
+def en_yuksek_not(liste):
+    if len(liste) == 0:
+        return None
+    en_iyi = max(liste, key=lambda x: x["not"])
+    return en_iyi
+def ortalama_altindakiler(liste):
+    ort = ortalama_hesapla(liste)
+    alt_liste = [ogr for ogr in liste if ogr["not"] < ort]
+    return alt_liste, ort
+# ---- ANA DÖNGÜ ----
+while True:
+    print("\n===== 🧮 ÖĞRENCİ BİLGİ SİSTEMİ =====")
+    print("1. Yeni öğrenci ekle")
+    print("2. Öğrencileri listele")
+    print("3. Sınıf ortalamasını göster")
+    print("4. En yüksek not alan öğrenci")
+    print("5. Ortalama altındakileri listele")
+    print("6. Çıkış")
+
+    secim = input("Seçiminiz: ")
+
+    if secim == "1":
+        isim = input("Öğrencinin adı: ")
+        notu = int(input("Notu: "))
+        harf = harf_notu(notu)
+        durum = durum_belirle(notu)
+        ogrenciler.append({"isim": isim, "not": notu, "harf": harf, "durum": durum})
+        print(f"{isim} eklendi. ({harf} - {durum})")
+
+    elif secim == "2":
+        if len(ogrenciler) == 0:
+            print("Henüz öğrenci yok.")
+        else:
+            print("\n--- Öğrenci Listesi ---")
+            for ogr in ogrenciler:
+                print(f"{ogr['isim']:10} | Not: {ogr['not']:3} | Harf: {ogr['harf']} | Durum: {ogr['durum']}")
+
+    elif secim == "3":
+        print("Sınıf Ortalaması:", round(ortalama_hesapla(ogrenciler), 2))
+
+    elif secim == "4":
+        en_iyi = en_yuksek_not(ogrenciler)
+        if en_iyi:
+            print(f"En yüksek not {en_iyi['isim']} adlı öğrenciye ait: {en_iyi['not']} ({en_iyi['harf']})")
+        else:
+            print("Henüz öğrenci yok.")
+
+    elif secim == "5":
+        alt_liste, ort = ortalama_altindakiler(ogrenciler)
+        print(f"Sınıf Ortalaması: {round(ort, 2)}")
+        if len(alt_liste) == 0:
+            print("Tüm öğrenciler ortalamanın üzerinde! 🎉")
+        else:
+            print("Ortalama altındakiler:")
+            for ogr in alt_liste:
+                print(f"{ogr['isim']} ({ogr['not']})")
+
+    elif secim == "6":
+        print("Program sonlandırıldı. 👋")
+        break
+
+    else:
+        print("❌ Geçersiz seçim, tekrar deneyin.")    
